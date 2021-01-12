@@ -51,7 +51,14 @@ def move():
 
     if head.direction == "right":
         head.setx(x + 20)
-    
+
+
+# keyboard bindings
+window.listen()
+window.onkeypress(go_up,"Up")
+window.onkeypress(go_down,"Down")
+window.onkeypress(go_left,"Left")
+window.onkeypress(go_right,"Right")
 
 #main game loop
 while True:
