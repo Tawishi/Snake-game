@@ -29,6 +29,9 @@ food.color("orange")
 food.penup()  #turtle module by default draws a line
 food.goto(0,100)  #tutle starts at the centr of screen by default
 
+#growing snake body
+segments = []
+
 
 # Function for moving of head
 def go_up():
@@ -71,15 +74,23 @@ window.onkeypress(go_down,"Down")
 window.onkeypress(go_left,"Left")
 window.onkeypress(go_right,"Right")
 
-#main game loop
+# main game loop
 while True:
     window.update()
 
     if head.distance(food) < 20:
-        #move food to random place
+        # move food to random place
         x = random.randint(-290,290)
         y = random.randint(-290,290)
         food.goto(x,y)
+
+        # Grow the snake body
+        new_segment = turtle.Turtle()
+        new_segment.speed(0) #animation speed 
+        new_segment.shape("square")
+        new_segment.color("grey") 
+        new_segment.penup()  #turtle module by default draws a line
+        segments.append(new_segment) 
 
     move()
 
