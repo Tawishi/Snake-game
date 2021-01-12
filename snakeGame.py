@@ -19,6 +19,16 @@ head.penup()  #turtle module by default draws a line
 head.goto(0,0)  #tutle starts at the centr of screen by default
 head.direction = "stop"
 
+
+#  create snake food
+food = turtle.Turtle()
+food.speed(0) #animation speed of turtle module
+food.shape("circle")
+food.color("orange") 
+food.penup()  #turtle module by default draws a line
+food.goto(0,100)  #tutle starts at the centr of screen by default
+
+
 # Function for moving of head
 def go_up():
     head.direction = "up"
