@@ -3,6 +3,8 @@ import time
 import random
 
 delay = 0.1
+score = 0
+high_score = 0
 
 #set up the screen
 window = turtle.Screen()
@@ -122,6 +124,18 @@ while True:
         new_segment.penup()  #turtle module by default draws a line
         segments.append(new_segment) 
 
+        # shorten delay
+        delay -= 0.001
+
+        # increase score
+        score += 10
+
+        if score > high_score :
+            high_score = score
+
+        pen.clear()
+        pen.write("Score : {}   High Score : {}".format(score, high_score), align="center", font=("Courier",24,"normal"))
+
 
     # move segments back-to-up
     for index in range(len(segments)-1,0,-1):
@@ -152,6 +166,13 @@ while True:
 
             # clear segments list
             segments.clear()
+
+            # reset score
+            score = 0
+
+            pen.clear()
+            pen.write("Score : {}   High Score : {}".format(score, high_score), align="center", font=("Courier",24,"normal"))
+
 
 
     # add delay
