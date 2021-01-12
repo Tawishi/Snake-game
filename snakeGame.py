@@ -78,6 +78,21 @@ window.onkeypress(go_right,"Right")
 while True:
     window.update()
 
+    # check for border collisions; basically DIE snake Die! XD
+    if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
+        time.sleep(1)
+        head.goto(0,0)
+        head.direction = "stop"
+
+    
+    # restart after collision; REBIRTH of the snake! XD
+        for segment in segments:
+            segment.goto(1000,1000) #move off-screen
+
+        # clear segments list
+        segments.clear()
+
+
     if head.distance(food) < 20:
         # move food to random place
         x = random.randint(-290,290)
