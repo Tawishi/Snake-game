@@ -35,16 +35,20 @@ segments = []
 
 # Function for moving of head
 def go_up():
-    head.direction = "up"
+    if head.direction != "down":
+        head.direction = "up"
 
 def go_down():
-    head.direction = "down"
+    if head.direction != "up":
+        head.direction = "down"
 
 def go_left():
-    head.direction = "left"
+    if head.direction != "right":
+        head.direction = "left"
 
 def go_right():
-    head.direction = "right"
+    if head.direction != "left":
+        head.direction = "right"
 
 
 
@@ -122,6 +126,22 @@ while True:
 
 
     move()
+
+
+    # check for body collisions; DONT EAT SELF!
+    for segment in segments:
+        if segment.distance(head) < 20:
+            time.sleep(1)
+            head.goto(0,0)
+            head.direction = "stop"
+
+            # restart after collision; REBIRTH of the snake! XD
+            for segment in segments:
+                segment.goto(1000,1000) #move off-screen
+
+            # clear segments list
+            segments.clear()
+
 
     # add delay
     time.sleep(delay)
