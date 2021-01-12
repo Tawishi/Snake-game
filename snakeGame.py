@@ -106,14 +106,19 @@ while True:
         for segment in segments:
             segment.goto(1000,1000) #move off-screen
 
+        # clear segments list
+        segments.clear()
+
         #reset score
         score = 0
 
-        #reset delay
-        delay = 0.1
+        # shorten delay
+        delay -= 0.001
 
-        # clear segments list
-        segments.clear()
+        pen.clear()
+        pen.write("Score : {}   High Score : {}".format(score, high_score), align="center", font=("Courier",24,"normal"))
+
+        
 
 
     if head.distance(food) < 20:
