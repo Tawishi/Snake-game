@@ -1,5 +1,5 @@
 # Snake-game :snake:
-Snake game in python
+Snake game in python using Turtle.
 ## Run the Game
 1. Clone the repo
 ```
@@ -10,7 +10,7 @@ git clone https://github.com/Tawishi/Snake-game.git
 python snakeGame.py 
 ```
 ```
-python3 .\snakeGame.py 
+python3 snakeGame.py 
 ```
 3. Beat your the Highscore ! <br><br>
 <img src="https://github.com/Tawishi/Snake-game/blob/master/snake-game.jpg" alt="iamge"
